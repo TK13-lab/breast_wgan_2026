@@ -462,24 +462,3 @@ pC <- ggplot(
     plot.title = element_text(face = "bold", hjust = 0)
   )
 
-panelA_png_path <- render_chord_panel_bundle("fig04_panel_A_chord", width = 11, height = 9)
-chord_grob <- grid::rasterGrob(png::readPNG(panelA_png_path), interpolate = TRUE)
-
-save_grob_bundle(heatmap_grob, "fig04_panel_B_heatmap", width = 10, height = 8)
-save_plot_bundle(pC, "fig04_panel_C_overlap_heatmap", width = 7, height = 6)
-
-paper3_write_lines(
-  c(
-    "Fig. 4 workspace direct-run summary",
-    sprintf("Input gene list RDS: %s", gene_list_path),
-    sprintf("Lineage gene object source: %s", genes_by_lineage_source),
-    "Panels A and B were regenerated directly from workspace/local objects.",
-    "Panel C uses a pairwise lineage-overlap heatmap instead of the legacy VennDiagram rendering because the VennDiagram package is not available in the current environment.",
-    "The lineage gene sets saved for downstream Fig. 5 reproducibility were reconciled to the legacy canonical object when that reference was available.",
-    "The public release keeps panel-level exports only and omits the combined figure canvas."
-  ),
-  file.path(fig_paths$logs, "provenance_notes.txt")
-)
-paper3_capture_session_info(file.path(fig_paths$logs, "session_info.txt"))
-
-message("DONE: Fig. 4 regenerated in workspace outputs/figures/fig04_pathway_lineage_analysis/")
