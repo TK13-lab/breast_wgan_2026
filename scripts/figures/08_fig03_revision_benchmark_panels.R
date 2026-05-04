@@ -308,14 +308,5 @@ pSummary <- method_summary %>%
     axis.text.y = element_text(size = 9)
   )
 
-save_plot2(pSummary, "Fig3_revision_patient_pair_method_summary", width = 8.4, height = 4.8)
 
-paper3_capture_session_info(file.path(fig_paths$logs, "session_info_revision_benchmark.txt"))
-writeLines(
-  c(
-    sprintf("benchmark_dir=%s", benchmark_dir),
-    sprintf("latent_dir=%s", latent_dir),
-    sprintf("generated_at=%s", format(Sys.time(), tz = "UTC", usetz = TRUE))
-  ),
-  con = file.path(fig_paths$logs, "run_metadata_revision_benchmark.txt")
-)
+ 
