@@ -619,7 +619,5 @@ fig6D <- ggplot(panel_d_plot, aes(x = pathway, y = cell_type)) +
   )
 
 
-)
-paper3_capture_session_info(file.path(fig_paths$logs, "session_info.txt"))
 
 message("DONE: Fig. 6 regenerated in workspace outputs/figures/fig06_lineage_subtype_synthesis/")
