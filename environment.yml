@@ -1,0 +1,46 @@
+name: paper3-breast-wgan
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - git
+  - python=3.12
+  - pip
+  - r-base=4.5
+  - r-biocmanager
+  - r-remotes
+  - r-devtools
+  - r-readr
+  - r-dplyr
+  - r-purrr
+  - r-tidyr
+  - r-tibble
+  - r-ggplot2
+  - r-patchwork
+  - r-ggh4x
+  - r-ggrepel
+  - r-rcolorbrewer
+  - r-scales
+  - r-cowplot
+  - r-ggpubr
+  - r-rstatix
+  - r-stringr
+  - r-forcats
+  - r-gridextra
+  - r-png
+  - r-survival
+  - r-survminer
+  - r-seurat
+  - r-yaml
+  - bioconductor-clusterprofiler
+  - bioconductor-complexheatmap
+  - r-circlize
+  - r-msigdbr
+  - r-ggalluvial
+  - pip:
+      - numpy
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - torch
