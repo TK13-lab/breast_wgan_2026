@@ -9,4 +9,3 @@ Benchmark scripts used alongside the breast WGAN paper workflow.
 - `05_revision_latent_patient_pair_benchmark.py`: patient-pair latent benchmark for `scvi` or `scgen`
 - `06_revision_statistical_reporting_summary.py`: summary tables for reporting
 
-Outputs are written under `outputs/revision/` and are ignored by git.
