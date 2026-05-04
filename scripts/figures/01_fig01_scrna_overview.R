@@ -98,8 +98,7 @@ reduction_name <- choose_reduction(rds_integrated)
 pA <- cowplot::ggdraw() +
   theme_void() +
   cowplot::draw_label(
-    "(A) BioRender panel placeholder\nnot generated inside the workspace",
-    x = 0.01,
+      x = 0.01,
     y = 0.98,
     hjust = 0,
     vjust = 1,
@@ -233,43 +232,3 @@ pG_base <- DotPlot(rds_integrated, features = marker_features, dot.scale = 5) +
     plot.margin = margin(3, 3, 3, 3)
   )
 
-pB <- tag_panel(pB_base, "(B)")
-pC <- tag_panel(pC_base, "(C)")
-pD <- tag_panel(pD_base, "(D)")
-pE <- tag_panel(pE_base, "(E)")
-pF <- tag_panel(pF_base, "(F)")
-pG <- tag_panel(pG_base, "(G)")
-
-save_plot_bundle(pB_base, "fig01_panel_B_umap_celltype", width = 7, height = 6)
-save_plot_bundle(pC_base, "fig01_panel_C_umap_group", width = 7, height = 6)
-save_plot_bundle(pD_base, "fig01_panel_D_cell_fraction", width = 8, height = 5)
-save_plot_bundle(pE_base, "fig01_panel_E_cell_counts", width = 8, height = 5)
-save_plot_bundle(pF_base, "fig01_panel_F_boxplot_fraction", width = 8, height = 5)
-save_plot_bundle(pG_base, "fig01_panel_G_dotplot_markers", width = 9, height = 6)
-
-panel_inventory <- tibble::tribble(
-  ~panel, ~status, ~source,
-  "A", "placeholder", "workspace placeholder because original BioRender asset was not included in the legacy folder",
-  "B", "rerun", sprintf("DimPlot from %s using reduction %s", basename(input_rds), reduction_name),
-  "C", "rerun", sprintf("DimPlot from %s using reduction %s", basename(input_rds), reduction_name),
-  "D", "rerun", "cell fractions per patient/group from integrated metadata",
-  "E", "rerun", "group-level cell counts from integrated metadata",
-  "F", "rerun", "Wilcoxon comparison of cell fractions by group",
-  "G", "rerun", "marker gene dot plot generated from the integrated object"
-)
-paper3_write_csv(panel_inventory, file.path(fig_paths$tables, "panel_inventory.csv"))
-
-paper3_write_lines(
-  c(
-    "Fig. 1 workspace direct-run summary",
-    sprintf("Input object: %s", input_rds),
-    sprintf("Reduction used: %s", reduction_name),
-    "Panel A is a placeholder because the original BioRender panel was not available in the protected legacy directory.",
-    "Panels B-G were regenerated directly in the workspace from the integrated single-cell object.",
-    "The public release keeps panel-level exports only and does not write a combined figure canvas."
-  ),
-  file.path(fig_paths$logs, "provenance_notes.txt")
-)
-paper3_capture_session_info(file.path(fig_paths$logs, "session_info.txt"))
-
-message("DONE: Fig. 1 regenerated in workspace outputs/figures/fig01_scrna_overview/")
