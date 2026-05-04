@@ -618,23 +618,7 @@ fig6D <- ggplot(panel_d_plot, aes(x = pathway, y = cell_type)) +
     plot.margin = margin(6, 8, 6, 6)
   )
 
-save_plot_bundle(wrap_elements(full = fig6A), "fig06_panel_A_upset", width = 11, height = 8.5)
-save_plot_bundle(wrap_elements(full = fig6B), "fig06_panel_B_pathway_barplots", width = 16, height = 6)
-save_plot_bundle(fig6C, "fig06_panel_C_backmapping_heatmap", width = 8, height = 7)
-save_plot_bundle(fig6D, "fig06_panel_D_celltype_pathway_support", width = 18, height = 7.2)
-# Keep the legacy stem so downstream references do not point to a stale Sankey export.
-save_plot_bundle(fig6D, "fig06_panel_D_sankey", width = 18, height = 7.2)
 
-paper3_write_lines(
-  c(
-    "Fig. 6 workspace direct-run summary",
-    sprintf("Subtype-lineage signatures: %s", sig_path),
-    sprintf("Fig. 3 top-k gene lists: %s", gene_list_path),
-    sprintf("Supplementary pathway table source: %s", supp_table_source),
-    "All panels were regenerated directly in the workspace, with the pathway summary table reconciled to the legacy canonical export when that reference was available.",
-    "The public release keeps panel-level exports only and omits the combined figure layout."
-  ),
-  file.path(fig_paths$logs, "provenance_notes.txt")
 )
 paper3_capture_session_info(file.path(fig_paths$logs, "session_info.txt"))
 
