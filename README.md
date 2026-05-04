@@ -4,4 +4,4 @@ Public analysis scripts for the paper:
 
 Translating lineage-resolved single-cell programs to bulk clinical prognosis: adversarial generative learning reveals lineage-informed immune - stromal - epithelial risk signatures
 
-This repository contains a minimal script-focused release for model reruns, benchmarks, and one-run figure panel generation.
+This repository contains a script-focused release for model reruns, benchmarks, and figure panel generation.
