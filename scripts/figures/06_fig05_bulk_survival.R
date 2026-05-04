@@ -669,25 +669,3 @@ pD <- ggplot(pD_df, aes(x = lineage, y = subtype)) +
     plot.margin = margin(6, 6, 6, 6)
   )
 
-save_plot_bundle(pA, "fig05_panel_A_lineage_zscore", width = 13, height = 4)
-save_plot_bundle(pB, "fig05_panel_B_km_survival", width = 18, height = 12)
-save_plot_bundle(pC, "fig05_panel_C_loghr_heatmap", width = 7, height = 5)
-save_plot_bundle(pD, "fig05_panel_D_cindex_heatmap", width = 7, height = 5)
-
-paper3_write_lines(
-  c(
-    "Fig. 5 workspace direct-run summary",
-    sprintf("Expression matrix: %s", expr_path),
-    sprintf("Bulk metadata: %s", bulk_path),
-    sprintf("Lineage gene sets: %s", genes_by_lineage_path),
-    sprintf("Coefficient object source: %s", coef_source),
-    sprintf("Lineage signature source: %s", genes_by_lineage_sig_source),
-    sprintf("Subtype-lineage signature source: %s", genes_by_lineage_subtype_sig_source),
-    "The workspace rerun generated risk scores and downstream panels while reconciling signature objects to the legacy canonical references when they were available.",
-    "The public release keeps panel-level exports only and omits the combined figure layout."
-  ),
-  file.path(fig_paths$logs, "provenance_notes.txt")
-)
-paper3_capture_session_info(file.path(fig_paths$logs, "session_info.txt"))
-
-message("DONE: Fig. 5 regenerated in workspace outputs/figures/fig05_bulk_projection_survival/")
