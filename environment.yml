@@ -40,8 +40,7 @@ channels:
 variables:
   PAPER3_NATIVE_R_VERSION: "4.5.3"
   PAPER3_BIOCONDUCTOR_VERSION: "3.22"
-  PAPER3_R_PACKAGE_INSTALLER: "scripts/setup/install_packages.R"
-  PAPER3_ENV_NOTE: "Use native R for manuscript R packages; Conda only provisions Python/helper tools."
+  
 dependencies:
   - git
   - python=3.12
