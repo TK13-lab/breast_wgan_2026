@@ -3,9 +3,7 @@ channels:
   - conda-forge
   - defaults
 
-# Native R stack for the manuscript workflow.
-# Install these with system/native R via `Rscript scripts/setup/install_packages.R`,
-# not as Conda `r-*` packages.
+
 # R: 4.5.3
 # Bioconductor: 3.22
 # BiocManager 1.30.27
