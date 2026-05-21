@@ -18,31 +18,3 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Project data, configs, and generated outputs
-cache/
-logs/
-output/
-outputs/
-data/
-data_links/
-config/
-docs/
-
-# Common analysis artifacts
-*.rds
-*.rda
-*.RData
-*.pdf
-*.png
-*.jpg
-*.jpeg
-*.tiff
-*.csv
-*.tsv
-*.xlsx
-*.xls
-Rplots.pdf
-
-# OS files
-.DS_Store
-Thumbs.db
